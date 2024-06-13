@@ -23,7 +23,7 @@ interface ITest1ComponentProps {
 }
 
 export const Test1Component = (props: ITest1ComponentProps) => {
-
+    return <div style={{ color: props.age >= 18 ? "blue" : "red" }}>{props.name}</div>
 }
 
 
@@ -62,11 +62,13 @@ interface ITest2ComponentProps {
 }
 
 export const Test2Component = (props: ITest2ComponentProps) => {
+    const [age, setAge] = useState(0);
 
     useEffect(() => {
-    }, []);
+        getAge(props.name)
+            .then((resp) => setAge(resp))
+            .catch((err) => console.error(err));
+    }, [props.name]);
     
+    return <div style={{ color: age >= 18 ? "blue" : "red" }}>{props.name}</div>
 }
-
-
-
