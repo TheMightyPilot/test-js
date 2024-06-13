@@ -5,7 +5,7 @@
  * - These are a theoretical questions, there is no need to install packages or run the code.
  */
 
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 /**
  * TEST 1
